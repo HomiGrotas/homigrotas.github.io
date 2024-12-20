@@ -1,6 +1,6 @@
 # About
 Hello, I am back!
-After few years of developing low and high level systems, I started navigate inti the field of security research.<br><br>
+After few years of developing low and high level systems, I started navigate into the field of security research.<br><br>
 
 <br>
 Here are my currnent writeups:
@@ -12,4 +12,4 @@ Here are my currnent writeups:
 
 
 <br><br><br><br><br><br>
-v1.0
+v1.1

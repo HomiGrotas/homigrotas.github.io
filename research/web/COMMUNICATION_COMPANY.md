@@ -61,7 +61,7 @@ async def try_pin_code(phone_number, pin_code, session):
  Using this brute force script, I managed to login to every company user.
 
 
- # INCD Resposne
+# INCD Resposne
 ```
  תודה על פנייתך, הנושא הועבר לגורמים הרלוונטיים. 
 ```
