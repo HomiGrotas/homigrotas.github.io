@@ -7,6 +7,7 @@ Here are my currnent writeups:
 
 ## Research
 ### Web
+* [weddings website using google APIs](research/web/WEDDING_GOOGGLE_APIS.md)
 * [communication company website](research/web/COMMUNICATION_COMPANY.md)
 * [university students website](research/web/UNIVERSITY_STUDENTS_WEBSITE.md)
 
@@ -15,4 +16,4 @@ Here are my currnent writeups:
 
 
 <br><br><br><br><br><br>
-v1.1
+v1.1s
