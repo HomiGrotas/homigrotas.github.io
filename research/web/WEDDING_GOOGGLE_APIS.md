@@ -39,6 +39,12 @@ response:
 ```
 
 ### storage
+### Quick Intro: What is Firestore?
+Firestore is a NoSQL database by Google that's part of Firebase. It’s designed for apps — fast, flexible, and scalable. It works great *if* it’s configured properly.
+
+The key thing is that Firestore relies on **security rules** to control who can read and write data. If those rules aren’t set up right, any authenticated user might get access to data they shouldn’t.
+
+### researching the app firestore
 After I created a user and logged in, I saw a weird API call I wasn't familliar with in websites:
 
 
@@ -154,3 +160,34 @@ And we got our desire- all the users!
     ....
 ]
 ```
+## So what went wrong?
+The developers were using Firebase Auth — which is great — but they didn’t configure Firestore’s security rules properly. That meant any logged-in user could query collections like users, even if they weren’t supposed to.
+
+## How to fix it
+set Firestore rules correctly, such as in the following example:
+```js
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Only allow users to read/write their own document
+    match /users/{userId} {
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+    }
+
+    // For eventChats, allow only logged-in users to read, or limit further
+    match /eventChats/{chatId} {
+      allow read: if request.auth != null;
+      allow write: if false; // or restrict to specific roles
+    }
+  }
+}
+```
+
+# Final Thoughts
+When I saw the site was using Firebase, I figured it was probably fine. Turns out, the infrastructure was solid, but the rules were weak.
+
+Moral of the story? Tools don’t make your app secure — you do. So test like an attacker and think like a developer.
+
+Have fun exploring :) 
+
