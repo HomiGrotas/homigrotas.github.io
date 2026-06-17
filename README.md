@@ -7,12 +7,14 @@ Here are my currnent writeups:
 
 ## Research
 ### Web
-* [communication company website](research/web/COMMUNICATION_COMPANY.md)
-* [university students website](research/web/UNIVERSITY_STUDENTS_WEBSITE.md)
+* [Communication company website](research/web/COMMUNICATION_COMPANY.md)
+* [University students website](research/web/UNIVERSITY_STUDENTS_WEBSITE.md)
 
 ### Open Source
 * [redash](research/open_source/redash.md)
 
+## Learning
+* [Linux driver development](learning/developing_linux_modules.md)
 
 <br><br><br><br><br><br>
-v1.1
+v1.2
