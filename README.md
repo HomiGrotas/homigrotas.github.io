@@ -7,8 +7,9 @@ Here are my currnent writeups:
 
 ## Research
 ### Web
-* [Communication company website](research/web/COMMUNICATION_COMPANY.md)
-* [University students website](research/web/UNIVERSITY_STUDENTS_WEBSITE.md)
+* [weddings website using google APIs](research/web/WEDDING_GOOGGLE_APIS.md)
+* [communication company website](research/web/COMMUNICATION_COMPANY.md)
+* [university students website](research/web/UNIVERSITY_STUDENTS_WEBSITE.md)
 
 ### Open Source
 * [redash](research/open_source/redash.md)
