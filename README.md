@@ -16,6 +16,6 @@ Here are my currnent writeups:
 
 ## Learning
 * [Linux driver development](learning/developing_linux_modules.md)
-
+* [stack bof hijack program flow](learning/stack_overflow_for_code_execution.md)
 <br><br><br><br><br><br>
 v1.2
