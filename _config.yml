@@ -1,0 +1,62 @@
+# =============================================================================
+#  HomiGrotas — Security Research Blog
+#  Jekyll configuration for GitHub Pages
+# =============================================================================
+
+title: "HomiGrotas"
+description: "Offensive security research & deep-dive writeups — web security, binary exploitation, kernel development, and more."
+author: "HomiGrotas"
+
+url: "https://homigrotas.github.io"
+
+# ---------------------------------------------------------------------------
+# Build settings
+# ---------------------------------------------------------------------------
+markdown: kramdown
+highlighter: rouge
+encoding: utf-8
+
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    block:
+      line_numbers: false
+
+# ---------------------------------------------------------------------------
+# Collections: writeups live in their own folders
+# ---------------------------------------------------------------------------
+collections:
+  research:
+    output: true
+    permalink: /:collection/:path
+  learning:
+    output: true
+    permalink: /:collection/:path
+
+defaults:
+  - scope:
+      path: "_research"
+    values:
+      layout: post
+  - scope:
+      path: "_learning"
+    values:
+      layout: post
+
+# ---------------------------------------------------------------------------
+# Plugins available on GitHub Pages
+# ---------------------------------------------------------------------------
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+# Exclude local development files from the build
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - .gitignore
+  - vendor
+  - node_modules

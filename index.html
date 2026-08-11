@@ -1,0 +1,102 @@
+---
+layout: default
+---
+
+<section class="hero">
+
+  <pre class="hero-ascii">
+  <span class="ac-dim">┌──────────────────────────────────────────────────────────┐</span>
+  <span class="ac-dim">│</span>  ██   ██ ██████  ███    ███ ██  ██████  ██████   ██████  <span class="ac-dim">│</span>
+  <span class="ac-dim">│</span>  ██   ██ ██   ██ ████  ████ ██ ██       ██   ██ ██    ██ <span class="ac-dim">│</span>
+  <span class="ac-dim">│</span>  ██   ██ ██████  ██ ████ ██ ██ ██   ███ ██████  ██    ██ <span class="ac-dim">│</span>
+  <span class="ac-dim">│</span>  ██   ██ ██   ██ ██  ██  ██ ██ ██    ██ ██   ██ ██    ██ <span class="ac-dim">│</span>
+  <span class="ac-dim">│</span>  ██████  ██████  ██      ██ ██  ██████  ██   ██  ██████  <span class="ac-dim">│</span>
+  <span class="ac-dim">│</span>                                                          <span class="ac-dim">│</span>
+  <span class="ac-dim">│</span>        <span class="ac-cyan">███</span>███ <span class="ac-cyan">██</span>███<span class="ac-cyan">██</span> <span class="ac-cyan">████</span>███ <span class="ac-cyan">██</span>     <span class="ac-cyan">██████</span>  <span class="ac-dim">│</span>
+  <span class="ac-dim">│</span>       <span class="ac-cyan">██</span>      <span class="ac-cyan">██</span>   <span class="ac-cyan">██</span> <span class="ac-cyan">██</span>    <span class="ac-cyan">██</span> ███ <span class="ac-cyan">██</span>   <span class="ac-cyan">████</span>    <span class="ac-dim">│</span>
+  <span class="ac-dim">│</span>       <span class="ac-cyan">██</span>  <span class="ac-cyan">████</span> <span class="ac-cyan">██</span>   <span class="ac-cyan">██</span> <span class="ac-cyan">██</span>    <span class="ac-cyan">██</span>  ██ <span class="ac-cyan">████</span> ██    <span class="ac-dim">│</span>
+  <span class="ac-dim">│</span>       <span class="ac-cyan">██</span>   <span class="ac-cyan">██</span> <span class="ac-cyan">██</span>   <span class="ac-cyan">██</span> <span class="ac-cyan">██</span>    <span class="ac-cyan">██</span>  ██ <span class="ac-cyan">██</span>  <span class="ac-cyan">████</span>   <span class="ac-dim">│</span>
+  <span class="ac-dim">│</span>       <span class="ac-cyan">██</span>████<span class="ac-cyan">██</span> <span class="ac-cyan">██</span>    <span class="ac-cyan">██</span> <span class="ac-cyan">██</span>████<span class="ac-cyan">██</span> <span class="ac-cyan">████</span>██ <span class="ac-cyan">██████</span>  <span class="ac-dim">│</span>
+  <span class="ac-dim">└──────────────────────────────────────────────────────────┘</span></pre>
+
+  <h1 class="glitch" data-text="{{ site.title }}">{{ site.title }}</h1>
+
+  <p class="hero-sub">
+    <span class="typewriter" data-text="> offensive security researcher :: booting up shell_01 :: explore the writeups below"></span>
+  </p>
+
+  <pre class="hero-lines">$ whoami
+<b>security researcher</b> — web appsec, binary exploitation, kernel & eBPF development
+$ ls ~/homigrotas.github.io
+<span class="cmd">research/</span>  <span class="cmd">learning/</span>  <span class="cmt"># (writeups &amp; deep dives)</span>
+$ ./status.sh
+<span class="ok">[+]</span> current focus: web security · exploit development · kernel modules
+<span class="bad">[!]</span> responsible disclosure: coordinated with affected vendors</pre>
+
+</section>
+
+<!-- ============================ RESEARCH ============================ -->
+<section class="section" id="research">
+  <h2 class="section-head"><span class="num">01</span> ~/research</h2>
+  <p class="section-desc">Adversarial case studies — real targets, real bugs, real impact. All findings were responsibly disclosed.</p>
+
+  {% assign web = site.research | where_exp: "p", "p.path contains 'web/'" | sort: "date" | reverse %}
+
+  {% if web.size > 0 %}
+  <h3 class="section-sub">web</h3>
+  <ul class="post-list">
+    {% for p in web %}
+    <li class="post-item">
+      <span class="post-item-num">0{{ forloop.index }}</span>
+      <span class="post-item-date">{{ p.date | date: "%Y-%m-%d" }}</span>
+      <div class="post-item-main">
+        <a class="post-item-title" href="{{ p.url | relative_url }}">{{ p.title }}</a>
+        <p class="post-item-excerpt">{{ p.excerpt | strip_html | strip_newlines | truncate: 110 }}</p>
+      </div>
+      <span class="post-item-sev sev {{ p.severity | default: 'n-a' }}">{{ p.severity | default: "info" }}</span>
+    </li>
+    {% endfor %}
+  </ul>
+  {% endif %}
+
+  {% assign os = site.research | where_exp: "p", "p.path contains 'open_source/'" %}
+  {% assign os = os | sort: "date" | reverse %}
+
+  {% if os.size > 0 %}
+  <h3 class="section-sub">open source</h3>
+  <ul class="post-list">
+    {% for p in os %}
+    <li class="post-item">
+      <span class="post-item-num">0{{ forloop.index }}</span>
+      <span class="post-item-date">{{ p.date | date: "%Y-%m-%d" }}</span>
+      <div class="post-item-main">
+        <a class="post-item-title" href="{{ p.url | relative_url }}">{{ p.title }}</a>
+        <p class="post-item-excerpt">{{ p.excerpt | strip_html | strip_newlines | truncate: 110 }}</p>
+      </div>
+      <span class="post-item-sev sev {{ p.severity | default: 'n-a' }}">{{ p.severity | default: "info" }}</span>
+    </li>
+    {% endfor %}
+  </ul>
+  {% endif %}
+</section>
+
+<!-- ============================ LEARNING ============================ -->
+<section class="section" id="learning">
+  <h2 class="section-head"><span class="num">02</span> ~/learning</h2>
+  <p class="section-desc">From the lab notebook — technical deep dives and build-along tutorials.</p>
+
+  {% assign learning = site.learning | sort: "date" | reverse %}
+  <ul class="post-list">
+    {% for p in learning %}
+    <li class="post-item">
+      <span class="post-item-num">0{{ forloop.index }}</span>
+      <span class="post-item-date">{{ p.date | date: "%Y-%m-%d" }}</span>
+      <div class="post-item-main">
+        <a class="post-item-title" href="{{ p.url | relative_url }}">{{ p.title }}</a>
+        <p class="post-item-excerpt">{{ p.excerpt | strip_html | strip_newlines | truncate: 110 }}</p>
+      </div>
+      <span class="post-item-sev sev n-a">lab</span>
+    </li>
+    {% endfor %}
+  </ul>
+</section>

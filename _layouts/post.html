@@ -1,0 +1,51 @@
+---
+layout: default
+---
+<div class="terminal-window post-window">
+
+  <div class="term-bar">
+    <div class="term-dots">
+      <span class="dot dot-red"></span>
+      <span class="dot dot-yellow"></span>
+      <span class="dot dot-green"></span>
+    </div>
+    <div class="term-title">
+      {{ page.category | default: "root" }}@homigrotas:~/{{ page.url | remove: ".html" }}
+    </div>
+  </div>
+
+  <article class="post-content">
+    <header class="post-header">
+      <p class="post-meta">
+        <span class="tag tag-cat">{{ page.category | upcase }}</span>
+        {% if page.tags %}
+          {% for tag in page.tags %}<span class="tag">{{ tag }}</span>{% endfor %}
+        {% endif %}
+      </p>
+      <h1 class="post-title">{{ page.title }}</h1>
+      <p class="post-meta-line">
+        <span class="dim"># date:</span> {{ page.date | date: "%Y-%m-%d" }}&nbsp;&nbsp;
+        <span class="dim"># author:</span> {{ page.author | default: site.author }}&nbsp;&nbsp;
+        <span class="dim"># severity:</span> <span class="{{ page.severity | default: 'n-a' }}">{{ page.severity | default: "informational" }}</span>
+      </p>
+    </header>
+
+    <hr class="hr-dashed">
+
+    <div class="markdown-body">
+      {{ content }}
+    </div>
+
+    <hr class="hr-dashed">
+
+    <nav class="post-nav">
+      {% if page.previous %}
+        <a class="nav-prev" href="{{ page.previous.url | relative_url }}">← {{ page.previous.title }}</a>
+      {% endif %}
+      {% if page.next %}
+        <a class="nav-next" href="{{ page.next.url | relative_url }}">{{ page.next.title }} →</a>
+      {% endif %}
+    </nav>
+
+  </article>
+</div>
