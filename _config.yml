@@ -48,7 +48,6 @@ defaults:
 # Plugins available on GitHub Pages
 # ---------------------------------------------------------------------------
 plugins:
-  - jekyll-feed
   - jekyll-sitemap
   - jekyll-seo-tag
 
