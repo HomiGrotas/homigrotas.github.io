@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Building AI Agents from Zero to Hero"
-date: 2026-09-26
+date: 2026-09-16
 category: learning
 tags: [AI, agents, ai-agents]
 severity: n-a
