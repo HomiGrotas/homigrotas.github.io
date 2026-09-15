@@ -125,3 +125,5 @@ The takeaway for me? Agents are less about the model being clever and more about
 ---
 
 *Part of an ongoing series. Next up: comparing LangGraph vs Pydantic AI for a production-ready agent.*
+
+[GitHub repo](https://github.com/HomiGrotas/my-agent)
